@@ -4,7 +4,7 @@ const User = require('../models/user.model')
 const auth = async(req, res, next) => {
     try {
         // The token comes in the format "Bearer [token]"
-        const token = req.header('Authorization').replace('Bearer ', 'test_key_gmob');
+        const token = req.header('Authorization').replace('Bearer ', '');
         // const data = jwt.verify(token, process.env.JWT_KEY);
         
         // const user = await User.findOne({ _id: data._id, 'tokens.token': token });
@@ -26,7 +26,7 @@ const auth = async(req, res, next) => {
 
         next();
     } catch (error) {
-        res.status(401).send({ error: 'erro no auth' });
+        res.status(401).send({ error: 'Forbidden' });
     }
 
 }
